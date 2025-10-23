@@ -35,17 +35,17 @@ Cada poder ordena os zumbis na linha atual da planta por HP (ordem crescente):
 
 1.  **Selection Sort** – “Raízes calculistas”
 2.  **Insertion Sort** – “Crescimento gradual”
-3.  **Bubble Sort** – “Explosão de seiva”
-4.  **Merge Sort** – “Divisão de galhos”
-5.  **Quick Sort** – “Ataque relâmpago”
-6.  **Heap Sort** – “Domínio das raízes profundas”
+3.  **Bubble Sort**    – “Explosão de seiva”
+4.  **Merge Sort**     – “Divisão de galhos”
+5.  **Quick Sort**     – “Ataque relâmpago”
+6.  **Heap Sort**      – “Domínio das raízes profundas”
 
 ## 🎮 Como Jogar
 
 O jogo é controlado por um menu numérico:
 
-* `1) Subir linha`: Move a planta para a linha de cima (`linha - 1`).
-* `2) Descer linha`: Move a planta para a linha de baixo (`linha + 1`).
+* `1) Subir linha`: Move a planta para a linha de cima.
+* `2) Descer linha`: Move a planta para a linha de baixo.
 * `3) Usar poder de defesa (ordenar)`: Abre o menu de algoritmos. Escolha um para ordenar a linha atual.
 * `4) Atacar linha atual`: Causa 5 de dano ao zumbi mais avançado (mais à esquerda) na linha da planta.
 * `5) Próxima rodada`: Avança o contador de rodada e gera novos zumbis.
@@ -56,8 +56,9 @@ O jogo é controlado por um menu numérico:
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Linguagem:** C++
+* **C++**
 
 ## 👨‍💻 Autores
 
-* **Rafaela de Castro Lima** **Vinicius Nemet**
+* **Rafaela de Castro Lima** 
+* **Vinicius Nemet**
