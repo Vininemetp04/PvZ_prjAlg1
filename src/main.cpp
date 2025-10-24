@@ -1,25 +1,38 @@
 #include <iostream>
+#include <vector>
+#include "color.hpp"
 
 using namespace std;
 
-void printColor(int r, int g, int b, string str){
-    cout << "\e[48;2;"<<r<<";"<<g<<";"<<b<<";2m"<<str<<"\e[0m";
-    
+void showGrid(vector<vector<int>> grid, int COLS, int LINE){
+    int green[3] = {80, 180, 80};  	
+    for (int i = 0; i < LINE; i++){
+        for (int j = 0; j < COLS; j++){
+            cgColorBG(green); // Deixa o fundo do terminal na cor verde
+            cout << grid[i][j];
+            resetColor(); // Volta o terminal a aparencia padrão
+  	    }
+        cout << endl;
+  	} 
 }
 
 int main(){
-    const int COLS = 9;
-    const int LINE = 5;
-  	
-    int grid[LINE][COLS];
-  
-    for (int i = 0; i < LINE; i++){
+    const int COLS = 9, LINE = 5;
+
+    // Cria o "Mapa" do jogo
+    vector<vector<int>> grid(LINE, vector<int>(COLS));
+    for (int i = 0; i < LINE; i++){ 
         for (int j = 0; j < COLS; j++){
-            grid[i][j] = 3;
-            printColor(20, 180, 23, " ");
+            grid[i][j] = 0;
   	    }
-        cout << endl;
   	}
-  
+
+    clear();
+
+    showGrid(grid, COLS, LINE); 
+    char saida;
+    cin >> saida;
+    clear();
+
   	return 0;
 }
