@@ -1,11 +1,11 @@
 #include <iostream>
 
-void cgColorBG(int* rgb) {
-    std::cout << "\e[48;2;" << rgb[0] << ";" << rgb[1] << ";" << rgb[2] << "m";
+void cgColorBG(int r, int g, int b) {
+    std::cout << "\e[48;2;" << r << ";" << g << ";" << b << "m";
 }
 
-void cgColorTX(int* rgb) {
-    std::cout << "\e[38;2;" << rgb[0] << ";" << rgb[1] << ";" << rgb[2] << "m";
+void cgColorTX(int r, int g, int b) {
+    std::cout << "\e[38;2;" << r << ";" << g << ";" << b << "m";
 }
 
 void resetColor() {
