@@ -78,7 +78,11 @@ void View::printGrid(){
             if (this->pl.getPosicao() == i) this->drawPL(linha);      // parte da matriz tem 3x3 caracteres
             else this->drawBG(3); // Alinha a matriz na tela
             for (int j = 0; j < this->gd.getNColunas(); j++){
-                if (this->gd.getPOS(i, j) == 0) this->drawBG(3);
+                if (this->gd.getPOS(i, j) == 0) {
+                    this->drawBG(3);
+                    continue;
+                }
+                this->drawZB(linha);                
             }
         cout << endl;
         }

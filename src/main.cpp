@@ -28,6 +28,10 @@ int main(){
         if (jogada == 'p'){
             running = false;
         }
+        if (jogada == 'z'){
+            gd.randZB(25);
+        }
+        gd.avancarZumbis(running);
     }
     clear();
   	return 0;
