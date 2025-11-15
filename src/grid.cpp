@@ -12,7 +12,7 @@ Grid::Grid(int LIN, int COL){  // Contrutor
     this->gen = mt19937(rd());
 }
 
-vector<int> Grid::getLinha(int linha){
+vector<int>& Grid::getLinha(int linha){
     return this->grid[linha];
 }
 

@@ -12,7 +12,7 @@ class Grid{
         std::mt19937 gen;
     public:
         Grid(int LIN, int COL);
-        std::vector<int> getLinha(int linha);
+        std::vector<int>& getLinha(int linha);
         int getPOS(int linha, int coluna);
         int getNLinhas();
         int getNColunas();

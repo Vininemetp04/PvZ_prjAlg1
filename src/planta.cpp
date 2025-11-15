@@ -1,4 +1,6 @@
 #include "planta.h"
+#include "grid.h"
+#include <vector>
 
 Planta::Planta(int max){
     this->posicao = 0;
@@ -17,4 +19,14 @@ void Planta::moveBaixo(){
 
 int Planta::getPosicao(){
     return this->posicao;
+}
+
+void Planta::atacar(Grid& gd){
+   for (int& z : gd.getLinha(this->posicao)){
+        if (z > 0){ 
+            z -= 5;
+            if(z<0) z = 0;
+            break;
+        }
+   } 
 }

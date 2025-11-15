@@ -17,22 +17,29 @@ int main(){
     while (running){
         clear();
         vw.view();
-        cout << "W - sobe linha   P - sair\nS - desce linha\n";
+        cout << "W - sobe linha   P - sair\nS - desce linha   A - ataca\n";
         cin >> jogada;
-        if (jogada == 'w'){
-            pl.moveCima();
-        } 
-        if (jogada == 's'){
-            pl.moveBaixo();
+        
+        switch (jogada){
+            case 'w':
+                pl.moveCima();
+                break;
+            case 's':
+                pl.moveBaixo();
+                break;
+            case 'p':
+                running = false;
+                break;
+            case 'a':
+                pl.atacar(gd);
+                break;
         }
-        if (jogada == 'p'){
-            running = false;
-        }
-        if (jogada == 'z'){
-            gd.randZB(25);
-        }
+
         gd.avancarZumbis(running);
+        gd.randZB(35);
     }
+    
     clear();
+
   	return 0;
 }

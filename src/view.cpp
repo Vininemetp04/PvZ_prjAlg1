@@ -82,6 +82,7 @@ void View::printGrid(){
                     this->drawBG(3);
                     continue;
                 }
+                cout << this->gd.getPOS(i, j);
                 this->drawZB(linha);                
             }
         cout << endl;
