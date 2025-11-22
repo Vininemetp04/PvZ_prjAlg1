@@ -1,11 +1,7 @@
-#include <iostream>
-#include <vector>
-#include "color.h"
 #include "grid.h"
 #include "planta.h"
 #include "view.h"
-
-using namespace std;
+#include "menu.h"
 
 int main(){
     bool running = true;
@@ -17,8 +13,7 @@ int main(){
     while (running){
         clear();
         vw.view();
-        cout << "W - sobe linha   P - sair\nS - desce linha   A - ataca\n";
-        cin >> jogada;
+        menu(jogada); 
         
         switch (jogada){
             case 'w':
@@ -31,7 +26,7 @@ int main(){
                 running = false;
                 break;
             case 'a':
-                pl.atacar(gd);
+                pl.atacar(gd, 10);
                 break;
         }
 
@@ -40,6 +35,6 @@ int main(){
     }
     
     clear();
-
+    estatistica(pl);
   	return 0;
 }
