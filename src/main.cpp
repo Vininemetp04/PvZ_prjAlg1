@@ -7,7 +7,7 @@
 #include "poder.h"
 #include "poderes/todos.h"
 
-const int WIDTH = 8; 
+const int WIDTH = 4; 
 const int HEIGHT = 20;
 
 int main(){
@@ -17,7 +17,7 @@ int main(){
     Planta pl = Planta(WIDTH); // A planta.
     View vw = View(gd, pl); // O objeto de view para printar tudo na tela.
     char jogada; // Controle do jogador.
-    int turnos = 0; // contador de turnos.
+    int rodadas = 0; // contador de turnos.
 
     // Vetor com um ponteiro para os obj dos Poderes.
     std::vector<std::unique_ptr<Poder>> poderes;
@@ -30,7 +30,7 @@ int main(){
 
     // Loop do jogo.
     while (running){
-        turnos++;
+        rodadas++;
         clear();
         vw.view();
         drawPoderes(poderes);
@@ -75,6 +75,6 @@ int main(){
 
     // Quando o jogo acaba limpa a tela e mostra as estatisticas. 
     clear();
-    estatistica(pl, poderes);
+    estatistica(pl, rodadas, poderes);
   	return 0;
 }

@@ -16,7 +16,7 @@ class View{
         void randomColor(int r, int g, int b);
         void drawBG(int sz);
         void drawPL(int l);
-        void drawZB(int l);
+        void drawZB(int l, int vida);
         void printGrid();
     public:
         View(Grid& gd, Planta& pl);

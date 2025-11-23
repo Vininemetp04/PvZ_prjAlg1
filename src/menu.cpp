@@ -31,10 +31,10 @@ void drawPoderes(const vector<unique_ptr<Poder>>& poderes) {
     }
 }
 
-void estatistica(Planta& pl, const vector<unique_ptr<Poder>>& poderes){
+void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poderes){
     cout << "=-=-=-=-=-=-=| ESTATISTICAS |=-=-=-=-=-=-=";
     cout << endl;
-    cout << "Zombis Mortos: " << pl.getZombiesMortos() << endl;
+    cout << "Zombis Mortos: " << pl.getZombiesMortos() << " | Rodadas: " << rodadas << endl;
      for (size_t i = 0; i < poderes.size(); i++) {
         
         if (!poderes[i]->getDisponivel()) {

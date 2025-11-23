@@ -22,7 +22,7 @@ void View::randomColor(int r, int g, int b){ // Randomiza o cores dentro de um p
 
 void View::drawBG(int sz){ // Desenha o fundo do jogo
     for (int r = 0; r<sz;r++){
-        this->randomColor(20, 200, 20);
+        this->randomColor(35, 220, 35);
         cout << "▄";
     }
     resetColor();
@@ -34,42 +34,50 @@ void View::drawPL(int l){ // Desenha a Planta
         this->drawBG(1);
         cgColorBG(20, 200, 20);
         cgColorTX(200,0,150);
-        cout << "V";
-        resetColor();
+        cout << "★";
         this->drawBG(1);
         break;
     case 1:
         cgColorBG(20, 200, 20);
-        cout << "-+-";
-        resetColor();
+        cout << "⧫█⧫";
         break;
     case 2: 
         this->drawBG(1);
         cgColorBG(20,200,20);
         cgColorTX(105, 48, 1);
-        cout << "|";
-        resetColor();
+        cout << "▀";
         this->drawBG(1);
         break;
    } 
 }
 
-void View::drawZB(int l){  // Desenha o Zombie
-   switch(l){
-    case 0:
-        this->drawBG(1);
-        cout << "O";
-        this->drawBG(1);
-        break;
-    case 1:
-        cout << "/|\\";
-        break;
-    case 2:
-        cout << "/";
-        this->drawBG(1);
-        cout << "\\";
-        break;
-   }
+void View::drawZB(int l, int vida){  // Desenha o Zombie
+    int r = 255 - (vida*2);
+    int g = 40;
+    int b = 40;
+    switch(l){
+        case 0:
+            this->drawBG(1);
+            cgColorTX(r, g, b);
+            cgColorBG(20,200,20);
+            cout << "●";
+            this->drawBG(1);
+            break;
+        case 1:
+            cgColorTX(r, g, b);
+            cgColorBG(20,200,20);
+            cout << "/§\\";
+            break;
+        case 2:
+            cgColorTX(r, g, b);
+            cgColorBG(20,200,20);
+            cout << "∫";
+            this->drawBG(1);
+            cgColorTX(r, g, b);
+            cgColorBG(20,200,20);
+            cout << "∫";
+            break;
+    }
 }
 
 void View::printGrid(){
@@ -82,8 +90,7 @@ void View::printGrid(){
                     this->drawBG(3);
                     continue;
                 }
-                cout << this->gd.getPOS(i, j);
-                this->drawZB(linha);                
+                this->drawZB(linha, this->gd.getPOS(i, j));                
             }
         cout << endl;
         }
