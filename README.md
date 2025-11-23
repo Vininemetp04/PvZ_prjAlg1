@@ -42,17 +42,11 @@ Cada poder ordena os zumbis na linha atual da planta por HP (ordem crescente):
 
 ## 🎮 Como Jogar
 
-O jogo é controlado por um menu numérico:
-
-* `1) Subir linha`: Move a planta para a linha de cima.
-* `2) Descer linha`: Move a planta para a linha de baixo.
-* `3) Usar poder de defesa (ordenar)`: Abre o menu de algoritmos. Escolha um para ordenar a linha atual.
-* `4) Atacar linha atual`: Causa 5 de dano ao zumbi mais avançado (mais à esquerda) na linha da planta.
-* `5) Próxima rodada`: Avança o contador de rodada e gera novos zumbis.
-* `6) Mostrar estatísticas`: Exibe o relatório de desempenho (comparações, trocas, tempo) dos poderes já usados.
-* `0) Sair`: Encerra o jogo.
-
-**Objetivo:** Sobreviva! Você vence se limpar o campo de todos os zumbis e perde se o campo ficar totalmente cheio.
+* `W) Subir linha`: Move a planta para a linha de cima.
+* `S) Descer linha`: Move a planta para a linha de baixo.
+* `1-6) Usar poder de defesa (ordenar)`: Abre o menu de algoritmos. Escolha um para ordenar a linha atual.
+* `A) Atacar linha atual`: Causa 5 de dano ao zumbi mais avançado (mais à esquerda) na linha da planta.
+* `P) Sair`: Encerra o jogo.
 
 ## 🛠️ Tecnologias Utilizadas
 
