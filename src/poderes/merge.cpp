@@ -27,8 +27,8 @@ void MergeSort::_intercala(std::vector<int>& arr, int init, int mid, int fim){
         r.push_back(arr[i]);
     }
     
-    int i = 0;
-    int j = 0;
+    size_t i = 0;
+    size_t j = 0;
     int k = init;
     
     while (i < l.size() && j < r.size()) {

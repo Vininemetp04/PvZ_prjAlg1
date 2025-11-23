@@ -28,6 +28,10 @@ double Poder::getTempo(){
     return duracao.count();
 }
 
+bool Poder::getDisponivel(){
+    return this->disponivel;
+}
+
 std::string Poder::getNome(){
     return this->nome;
 }
