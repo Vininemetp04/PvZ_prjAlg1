@@ -6,11 +6,17 @@
 #include "menu.h"
 #include "poder.h"
 #include "poderes/todos.h"
-
+#ifdef _WIN32
+    #include <windows.h>
+#endif
 const int WIDTH = 8;
 const int HEIGHT = 20;
 
 int main(){
+    #ifdef _WIN32
+        SetConsoleOutputCP(CP_UTF8);
+        SetConsoleCP(CP_UTF8);
+    #endif
     // Inicia os objs principais.
     bool running = true; // Controle do jogo.
     Grid gd = Grid(WIDTH, HEIGHT); // Grid do jogo.
