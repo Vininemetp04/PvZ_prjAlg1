@@ -92,7 +92,7 @@ void View::printGrid(){
                 }
                 this->drawZB(linha, this->gd.getPOS(i, j));                
             }
-        cout << endl;
+        cout << "\n";
         }
     }
 }

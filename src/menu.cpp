@@ -13,7 +13,7 @@ void menu(char& jogada){
 }
 
 void drawPoderes(const vector<unique_ptr<Poder>>& poderes) {
-    cout << " PODERES " << endl;
+    cout << " PODERES \n";
     
     for (size_t i = 0; i < poderes.size(); i++) {
         
@@ -26,15 +26,15 @@ void drawPoderes(const vector<unique_ptr<Poder>>& poderes) {
         cout << (i + 1) << " - " << poderes[i]->getNome();
 
         cout << "\033[0m"; // RESETAR COR IMEDIATAMENTE
-        if (i%2==1) cout << endl;
+        if (i%2==1) cout << "\n";
         else cout << " | ";
     }
 }
 
 void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poderes){
     cout << "=-=-=-=-=-=-=| ESTATISTICAS |=-=-=-=-=-=-=";
-    cout << endl;
-    cout << "Zombis Mortos: " << pl.getZombiesMortos() << " | Rodadas: " << rodadas << endl;
+    cout << "\n";
+    cout << "Zombis Mortos: " << pl.getZombiesMortos() << " | Rodadas: " << rodadas << "\n";
      for (size_t i = 0; i < poderes.size(); i++) {
         
         if (!poderes[i]->getDisponivel()) {
@@ -42,6 +42,6 @@ void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poder
         } else {
              cout << poderes[i]->getNome() << ": Não utilizado";
         }
-        cout << endl;
+        cout << "\n";
     }
 }
