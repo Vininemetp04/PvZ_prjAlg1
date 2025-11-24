@@ -11,15 +11,6 @@ void cgColorTX(int r, int g, int b) {
 void resetColor() {
     std::cout << "\e[0m";
 }
-
-void blink(){
-    
-}
-
-void italic(){
-
-}
-
 void clear(){
     std::cout << "\e[H\e[2J";    
 }

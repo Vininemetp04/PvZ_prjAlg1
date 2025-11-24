@@ -12,10 +12,10 @@ View::View(Grid& gd, Planta& pl): gd(gd), pl(pl){
 }
 
 void View::randomColor(int r, int g, int b){ // Randomiza o cores dentro de um padrão
-    uniform_int_distribution<> dis(-1, 1);
-    int varR = 20 * dis(this->gen);
-    int varG = 35 * dis(this->gen);
-    int varB = 20 * dis(this->gen);
+    uniform_int_distribution<> dis(-1, 1);   // Randomiza o "filtro"
+    int varR = 20 * dis(this->gen);          //
+    int varG = 35 * dis(this->gen);          // Aplica o "Filtro" nos canais de cor
+    int varB = 20 * dis(this->gen);          //
     cgColorBG(r+varR, g+varG, b+varB);
     cgColorTX(r-varR, g-varG, b-varB);
 }
@@ -51,10 +51,10 @@ void View::drawPL(int l){ // Desenha a Planta
    } 
 }
 
-void View::drawZB(int l, int vida){  // Desenha o Zombie
-    int r = 255 - (vida*2);
-    int g = 40;
-    int b = 40;
+void View::drawZB(int l, int vida){  // Desenha o Zombi
+    int r = 255 - (vida*2); //
+    int g = 40;             // Determina a cor do zombi conforme a vida
+    int b = 40;             //
     switch(l){
         case 0:
             this->drawBG(1);

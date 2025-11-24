@@ -28,7 +28,7 @@ int Grid::getNColunas(){
     return this->colunas;
 }
 
-void Grid::randZB(int chance){
+void Grid::randZB(int chance){ // Randomiza os zumbis
     uniform_int_distribution<> chance_dist(0, 99);
     if (chance_dist(this->gen) >= chance) return;
 
@@ -39,7 +39,7 @@ void Grid::randZB(int chance){
     this->grid[linhaRND][this->colunas-1] = vidaZB;
 }
 
-void Grid::avancarZumbis(bool& game){
+void Grid::avancarZumbis(bool& game){ // move os zombis um campo para a esquerda
     for (int i = 0; i < this->linhas; i++){
         for (int j = 0; j < this->colunas; j++){
             if (this->grid[i][j] > 0){

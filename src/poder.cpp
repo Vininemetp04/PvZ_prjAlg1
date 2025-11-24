@@ -24,8 +24,8 @@ void Poder::troca(int& valor1, int& valor2){
 }
 
 double Poder::getTempo(){
-    std::chrono::duration<double, std::milli> duracao = this->fim - this->inicio;
-    return duracao.count();
+    std::chrono::duration<double, std::milli> duracao = this->fim - this->inicio;  // Pega a diferença de milisegundos dos tempos de inicio e fim
+    return duracao.count();                                                        // Returna os ms
 }
 
 bool Poder::getDisponivel(){
@@ -38,8 +38,8 @@ std::string Poder::getNome(){
 
 void Poder::ordena(std::vector<int>& arr){
     if (!this->disponivel) return;
-    this->inicio = std::chrono::high_resolution_clock::now();
-    this->_sort(arr);
-    this->fim = std::chrono::high_resolution_clock::now();
-    this->disponivel = false;
+    this->inicio = std::chrono::high_resolution_clock::now(); // Pega hora antes da ordenação
+    this->_sort(arr);                                         // Ordena o array
+    this->fim = std::chrono::high_resolution_clock::now();    // Pega hora depois da ordenação
+    this->disponivel = false;                                 // Deixa poder indisponivel
 }

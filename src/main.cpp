@@ -7,7 +7,7 @@
 #include "poder.h"
 #include "poderes/todos.h"
 
-const int WIDTH = 4; 
+const int WIDTH = 8;
 const int HEIGHT = 20;
 
 int main(){
