@@ -4,6 +4,8 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -31,17 +33,61 @@ void drawPoderes(const vector<unique_ptr<Poder>>& poderes) {
     }
 }
 
+// Função auxiliar para alinhar texto com acentos corretamente
+void printAlinhado(string texto, int larguraTotal) {
+    int tamanhoVisual = 0;
+    for (size_t i = 0; i < texto.length(); i++) {
+        // Em UTF-8, bytes de continuação começam com 10xxxxxx (0x80).
+        // Contamos apenas os bytes que NÃO são continuação.
+        if ((texto[i] & 0xC0) != 0x80) {
+            tamanhoVisual++;
+        }
+    }
+    
+    int espacos = larguraTotal - tamanhoVisual;
+    if (espacos < 0) espacos = 0;
+    
+    cout << texto << string(espacos, ' ');
+}
+
 void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poderes){
-    cout << "=-=-=-=-=-=-=| ESTATISTICAS |=-=-=-=-=-=-=";
-    cout << "\n";
-    cout << "Zombis Mortos: " << pl.getZombiesMortos() << " | Rodadas: " << rodadas << "\n";
-     for (size_t i = 0; i < poderes.size(); i++) {
+    cout << "=-=-=-=-=-=-=| ESTATISTICAS |=-=-=-=-=-=-=\n";
+    cout << "Zombis Mortos: " << pl.getZombiesMortos() << " | Rodadas: " << rodadas << "\n\n";
+
+    // --- CABEÇALHO ---
+    cout << "| "; 
+    printAlinhado("Nome do Poder", 30); // Usamos nossa função aqui
+    cout << "| " << setw(10) << "Tempo" 
+         << " | " << setw(10) << "Trocas" 
+         << " | " << setw(12) << "Comparações " << " |\n";
+    
+    // --- LINHA DIVISÓRIA ---
+    cout << "|" << string(31, '-') << "|" << string(12, '-') << "|" << string(12, '-') << "|" << string(14, '-') << "|\n";
+
+    // --- CONTEÚDO ---
+    for (const auto& poder : poderes) {
+        cout << "| ";
         
-        if (!poderes[i]->getDisponivel()) {
-             cout << poderes[i]->getNome() << ": " << poderes[i]->getTempo() << "ms";
-        } else {
-             cout << poderes[i]->getNome() << ": Não utilizado";
+        // 1. Imprime o Nome alinhado (corrige o problema dos acentos)
+        printAlinhado(poder->getNome(), 30);
+        
+        cout << "|";
+
+        if (!poder->getDisponivel()) { 
+            // 2. Se foi usado, imprime os dados numéricos alinhados à direita
+            cout << setw(8) << poder->getTempo() << "ms " << " |"
+                 << setw(11) << poder->getTroca() << " |" 
+                 << setw(13) << poder->getComparacao() << " |";
+        } else { 
+            // 3. Se não foi usado, imprime traços centralizados
+            cout << setw(11) << " - " << " |" 
+                 << setw(11) << " - " << " |" 
+                 << setw(13) << " - " << " |";
         }
         cout << "\n";
     }
+
+    // --- LINHA FINAL ---
+    cout << "|" << string(31, '-') << "-" << string(12, '-') << "-" << string(12, '-') << "-" << string(14, '-') << "|\n";
 }
+

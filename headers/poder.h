@@ -14,6 +14,8 @@ class Poder{
         std::chrono::high_resolution_clock::time_point inicio;
         std::chrono::high_resolution_clock::time_point fim;
         virtual void _sort(std::vector<int>& arr) = 0;
+        int count_troca;
+        int count_comparacao;
     public:
         Poder(std::string nome);
         virtual ~Poder() {}
@@ -21,6 +23,8 @@ class Poder{
         double getTempo();
         bool getDisponivel();
         std::string getNome();
+        int getComparacao();
+        int getTroca();
 };
 
 #endif
