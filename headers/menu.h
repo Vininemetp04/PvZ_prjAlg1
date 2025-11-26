@@ -14,3 +14,7 @@ void estatistica(Planta& pl, int rodadas, const std::vector<std::unique_ptr<Pode
 void drawPoderes(const std::vector<std::unique_ptr<Poder>>& poderes);
 
 void printAlinhado(std::string texto, int larguraTotal);
+
+void menuPrincipal(int& maxRodadas, char& jogada);
+
+void tutorial();

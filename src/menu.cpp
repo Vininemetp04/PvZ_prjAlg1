@@ -33,6 +33,41 @@ void drawPoderes(const vector<unique_ptr<Poder>>& poderes) {
     }
 }
 
+void menuPrincipal(int& maxRodadas, char& jogada) {
+    cout << "=========================================\n";
+    cout << "      PLANTS VS ZOMBIES: ALG EDITION     \n";
+    if (maxRodadas > 0){
+        cout << "=========================================\n";
+        cout << "       RECORDE ATUAL: " << maxRodadas << " RODADAS       \n";
+    }
+    cout << "=========================================\n\n";
+    
+    cout << "1 - Iniciar Jogo\n";
+    cout << "2 - Tutorial / Dicas\n";
+    cout << "0 - Sair\n\n";
+    
+    cout << "Escolha uma opcao: ";
+    cin >> jogada;
+}
+
+void tutorial() {
+    cout << "================= TUTORIAL =================\n\n"
+     << "[ MECANICA DE VIDA ]\n"
+     << "  Os zumbis nao mostram numeros de vida.\n"
+     << "  Porem, preste atencao na cor deles:\n"
+     << "  Quanto mais \033[31mVERMELHO\033[0m o zumbi estiver,\n"
+     << "  mais perto da morte ele esta!\n\n";
+    
+    cout << "[ OBJETIVO ]\n"
+     << "  Sobreviva o maximo de rodadas possivel.\n"
+     << "  Use seus poderes de ordenacao com sabedoria,\n"
+     << "  pois cada um so pode ser usado UMA VEZ.\n\n";
+    
+    cout << "Pressione qualquer tecla e ENTER para voltar...";
+    char temp;
+    cin >> temp;
+}
+
 // Função auxiliar para alinhar texto com acentos corretamente
 void printAlinhado(string texto, int larguraTotal) {
     int tamanhoVisual = 0;
@@ -93,5 +128,8 @@ void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poder
 
     // --- LINHA FINAL ---
     cout << "*" << string(72, '-') << "*\n";
+    cout << "Pressione qualquer tecla e ENTER para voltar...";
+    char temp;
+    cin >> temp;
 }
 

@@ -25,6 +25,7 @@ class Poder{
         std::string getNome();
         int getComparacao();
         int getTroca();
+        void reset();
 };
 
 #endif

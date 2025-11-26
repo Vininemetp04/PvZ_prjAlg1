@@ -6,8 +6,10 @@
 Poder::Poder(std::string nome){
     this->nome = nome;
     this->disponivel = true;
-    this->count_comparacao = 0;
-    this->count_troca = 0;
+}
+
+void Poder::reset(){
+    this->disponivel = true;
 }
 
 int Poder::max(std::vector<int>& arr){
@@ -41,6 +43,8 @@ std::string Poder::getNome(){
 
 void Poder::ordena(std::vector<int>& arr){
     if (!this->disponivel) return;
+    this->count_comparacao = 0;
+    this->count_troca = 0;
     this->inicio = std::chrono::high_resolution_clock::now(); // Pega hora antes da ordenação
     this->_sort(arr);                                         // Ordena o array
     this->fim = std::chrono::high_resolution_clock::now();    // Pega hora depois da ordenação
