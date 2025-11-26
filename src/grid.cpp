@@ -55,4 +55,3 @@ void Grid::avancarZumbis(bool& game){ // move os zombis um campo para a esquerda
     }
 }
 
-// Daqui pra frente é só pra trás 

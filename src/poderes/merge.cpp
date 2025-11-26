@@ -32,11 +32,14 @@ void MergeSort::_intercala(std::vector<int>& arr, int init, int mid, int fim){
     int k = init;
     
     while (i < l.size() && j < r.size()) {
+        this->count_comparacao++;
         if (l[i] <= r[j]) {
             arr[k] = l[i];
+            this->count_troca++;
             i++;
         } else {
             arr[k] = r[j];
+            this->count_troca++;
             j++;
         }
         k++;
@@ -44,11 +47,13 @@ void MergeSort::_intercala(std::vector<int>& arr, int init, int mid, int fim){
 
     while (i < l.size()) {
         arr[k] = l[i];
+        this->count_troca++;
         i++;
         k++;
     }
     while (j < r.size()) {
         arr[k] = r[j];
+        this->count_troca++;
         j++;
         k++;
     }

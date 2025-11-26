@@ -55,6 +55,7 @@ void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poder
     cout << "Zombis Mortos: " << pl.getZombiesMortos() << " | Rodadas: " << rodadas << "\n\n";
 
     // --- CABEÇALHO ---
+    cout << "*" << string(72, '-') << "*\n";
     cout << "| "; 
     printAlinhado("Nome do Poder", 30); // Usamos nossa função aqui
     cout << "| " << setw(10) << "Tempo" 
@@ -65,7 +66,8 @@ void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poder
     cout << "|" << string(31, '-') << "|" << string(12, '-') << "|" << string(12, '-') << "|" << string(14, '-') << "|\n";
 
     // --- CONTEÚDO ---
-    for (const auto& poder : poderes) {
+    cout << fixed << setprecision(4);
+    for (const auto& poder : poderes) { // Escreve o frame dos dados dos PODERES
         cout << "| ";
         
         // 1. Imprime o Nome alinhado (corrige o problema dos acentos)
@@ -88,6 +90,6 @@ void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poder
     }
 
     // --- LINHA FINAL ---
-    cout << "|" << string(31, '-') << "-" << string(12, '-') << "-" << string(12, '-') << "-" << string(14, '-') << "|\n";
+    cout << "*" << string(72, '-') << "*\n";
 }
 

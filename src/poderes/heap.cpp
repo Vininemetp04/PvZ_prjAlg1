@@ -27,8 +27,12 @@ void HeapSort::_arrumaHeap(std::vector<int>& arr, int init, int fim){
     while (root*2+1 <= fim){
         int filho = root*2+1;
         int troca = root;
+        this->count_comparacao++;
         if (arr[troca] < arr[filho]) troca = filho;
-        if (filho+1 <= fim && arr[troca] < arr[filho+1]) troca = filho+1;
+        if (filho+1 <= fim){
+            this->count_comparacao++;
+            if (arr[troca] < arr[filho+1]) troca = filho+1;
+        }
         if (troca == root) break;
         else {
             this->troca(arr[root], arr[troca]);

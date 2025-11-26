@@ -8,6 +8,7 @@ void SelectionSort::_sort(std::vector<int>& arr){
     for (int i = 0; i < sz-1; i++){
         int min = i;
         for (int j = i+1; j < sz; j++){
+            this->count_comparacao++;
             if (arr[j] < arr[min]) min = j;
         }
         this->troca(arr[i], arr[min]);

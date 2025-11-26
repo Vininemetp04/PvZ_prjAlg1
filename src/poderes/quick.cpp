@@ -21,8 +21,10 @@ int QuickSort::_part(std::vector<int>& arr, int init, int fim){
     int j = fim;
     int pivo = arr[init];
     while (i <= j){
+        this->count_comparacao++;
         if (i < fim && arr[i] <= pivo) i++;
         else {
+            this->count_comparacao++;
             if (arr[j] > pivo) j--;
             else {
                 this->troca(arr[i], arr[j]);
