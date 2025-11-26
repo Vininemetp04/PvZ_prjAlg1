@@ -17,7 +17,7 @@ class Grid{
         int getNLinhas();
         int getNColunas();
         void randZB(int chance);
-        void avancarZumbis(bool& game, bool& venceu);
+        void avancarZumbis(bool& game, bool& venceu, int& rodada);
 };
 
 #endif

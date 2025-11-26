@@ -35,6 +35,7 @@ void jogo(){
         menu(jogada); 
         if (jogada == 'p'){
             running = false; 
+            venceu = false;
         } else { 
             switch (jogada){
                 case 'w': pl.moveCima(); break;
@@ -47,8 +48,8 @@ void jogo(){
                 case '5': poderes[4]->ordena(gd.getLinha(pl.getPosicao())); break;
                 case '6': poderes[5]->ordena(gd.getLinha(pl.getPosicao())); break;
             }
-            gd.avancarZumbis(running, venceu);
             gd.randZB(35);
+            gd.avancarZumbis(running, venceu, rodadas);
         }
     }
     if (maxRodadas < rodadas && venceu) maxRodadas = rodadas;

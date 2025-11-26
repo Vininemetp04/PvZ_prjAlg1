@@ -39,9 +39,11 @@ void Grid::randZB(int chance){ // Randomiza os zumbis
     this->grid[linhaRND][this->colunas-1] = vidaZB;
 }
 
-void Grid::avancarZumbis(bool& game, bool& venceu){ // move os zombis um campo para a esquerda
+void Grid::avancarZumbis(bool& game, bool& venceu, int& rodada){ // move os zombis um campo para a esquerda
+    int verifica = 0;
     for (int i = 0; i < this->linhas; i++){
         for (int j = 0; j < this->colunas; j++){
+            verifica += this->grid[i][j]; 
             if (this->grid[i][j] > 0){
                 if (j == 0) {
                     game = false;
@@ -53,6 +55,10 @@ void Grid::avancarZumbis(bool& game, bool& venceu){ // move os zombis um campo p
                 }
             }
         }
+    }
+    if (verifica == 0 && rodada > 10) {
+        game = false;
+        venceu = true;
     }
 }
 
