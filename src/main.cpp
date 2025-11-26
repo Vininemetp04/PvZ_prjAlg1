@@ -14,9 +14,6 @@
 const int WIDTH = 8;
 const int HEIGHT = 20;
 
-Grid gd = Grid(WIDTH, HEIGHT); // Grid do jogo.
-Planta pl = Planta(WIDTH); // A planta.
-View vw = View(gd, pl); // O objeto de view para printar tudo na tela.
 char jogada; // Controle do jogador.
 int rodadas = 0; // contador de turnos.
 int maxRodadas = 0; // contador da Maior pontuação.
@@ -24,6 +21,10 @@ bool venceu = true;
 std::vector<std::unique_ptr<Poder>> poderes;
 
 void jogo(){
+    Grid gd = Grid(WIDTH, HEIGHT); // Grid do jogo.
+    Planta pl = Planta(WIDTH); // A planta.
+    View vw = View(gd, pl); // O objeto de view para printar tudo na tela.
+    rodadas = 0;    
     for (auto& p : poderes) p->reset();
     bool running = true; // Controle do jogo.
     while (running){
