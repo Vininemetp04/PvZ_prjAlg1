@@ -27,7 +27,7 @@ void Poder::troca(int& valor1, int& valor2){
 }
 
 double Poder::getTempo(){
-    std::chrono::duration<double, std::milli> duracao = this->fim - this->inicio;  // Pega a diferença de milisegundos dos tempos de inicio e fim
+    std::chrono::duration<double, std::nano> duracao = this->fim - this->inicio;  // Pega a diferença de nanosegundos dos tempos de inicio e fim
     return duracao.count();                                                        // Returna os ms
 }
 

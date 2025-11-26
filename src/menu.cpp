@@ -50,8 +50,10 @@ void printAlinhado(string texto, int larguraTotal) {
     cout << texto << string(espacos, ' ');
 }
 
-void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poderes){
+void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poderes, bool& venceu){
     cout << "=-=-=-=-=-=-=| ESTATISTICAS |=-=-=-=-=-=-=\n";
+    if (venceu) cout << "A Planta VENCEU!!!\n";
+    else cout << "A Planta PERDEU :(\n";
     cout << "Zombis Mortos: " << pl.getZombiesMortos() << " | Rodadas: " << rodadas << "\n\n";
 
     // --- CABEÇALHO ---
@@ -66,7 +68,7 @@ void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poder
     cout << "|" << string(31, '-') << "|" << string(12, '-') << "|" << string(12, '-') << "|" << string(14, '-') << "|\n";
 
     // --- CONTEÚDO ---
-    cout << fixed << setprecision(4);
+    cout << fixed << setprecision(1);
     for (const auto& poder : poderes) { // Escreve o frame dos dados dos PODERES
         cout << "| ";
         
@@ -77,7 +79,7 @@ void estatistica(Planta& pl, int rodadas, const vector<unique_ptr<Poder>>& poder
 
         if (!poder->getDisponivel()) { 
             // 2. Se foi usado, imprime os dados numéricos alinhados à direita
-            cout << setw(8) << poder->getTempo() << "ms " << " |"
+            cout << setw(8) << poder->getTempo() << "ns " << " |"
                  << setw(11) << poder->getTroca() << " |" 
                  << setw(13) << poder->getComparacao() << " |";
         } else { 

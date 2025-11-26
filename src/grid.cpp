@@ -39,12 +39,13 @@ void Grid::randZB(int chance){ // Randomiza os zumbis
     this->grid[linhaRND][this->colunas-1] = vidaZB;
 }
 
-void Grid::avancarZumbis(bool& game){ // move os zombis um campo para a esquerda
+void Grid::avancarZumbis(bool& game, bool& venceu){ // move os zombis um campo para a esquerda
     for (int i = 0; i < this->linhas; i++){
         for (int j = 0; j < this->colunas; j++){
             if (this->grid[i][j] > 0){
                 if (j == 0) {
                     game = false;
+                    venceu = false;
                 } 
                 else if (this->grid[i][j-1] == 0) {
                     this->grid[i][j-1] = this->grid[i][j]; // Copia o HP

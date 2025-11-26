@@ -6,9 +6,11 @@
 #include "menu.h"
 #include "poder.h"
 #include "poderes/todos.h"
+
 #ifdef _WIN32
     #include <windows.h>
 #endif
+
 const int WIDTH = 8;
 const int HEIGHT = 20;
 
@@ -24,6 +26,7 @@ int main(){
     View vw = View(gd, pl); // O objeto de view para printar tudo na tela.
     char jogada; // Controle do jogador.
     int rodadas = 0; // contador de turnos.
+    bool venceu = true;
 
     // Vetor com um ponteiro para os obj dos Poderes.
     std::vector<std::unique_ptr<Poder>> poderes;
@@ -75,12 +78,12 @@ int main(){
                 break;
         }
 
-        gd.avancarZumbis(running);
+        gd.avancarZumbis(running, venceu);
         gd.randZB(35);
     }
 
     // Quando o jogo acaba limpa a tela e mostra as estatisticas. 
     clear();
-    estatistica(pl, rodadas, poderes);
+    estatistica(pl, rodadas, poderes, venceu);
   	return 0;
 }
